@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joyeux Anniversaire 🌸</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #cceeff, #e6f7ff);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .carte {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 25px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      z-index: 10;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .video {
+      opacity: 0;
+      animation: fadeInVideo 1s ease-in-out 2s forwards;
+    }
+
+    .video video {
+      width: 100%;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #0077b6;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: 1.05rem;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .fleur {
+      position: absolute;
+      background: radial-gradient(circle at center, #87cefa, #0077b6);
+      border-radius: 50%;
+      opacity: 0;
+      animation: fleurir 6s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    @keyframes fleurir {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInVideo {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 600px) {
+      .carte {
+        padding: 1.5rem;
+      }
+      h1 { font-size: 1.7rem; }
+      p  { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="carte">
+    <div class="video"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <video id="maVideo" src="/suites/WhatsApp Vidéo 2025-04-29 à 09.47.21_60debebe.mp4" autoplay playsinline controls></video>
+    </div>
+    <h1>Joyeux Anniversaire Ludvine 🌸</h1>
+    <p>
+      En ce jour précieux et rempli de lumière, <br>
+      Une lumière douce vient se poser.<br>
+      Que chaque instant de ta vie soit réussite pur et succès<br>
+      Qui ton rire, éclat de feu, dissipe des ondes positives,<br><br>
+      Que le bonheur te suive éternellement.<br>
+      Que ce jour spécial réchauffe ton âme,<br>
+      Et que ce jour spécial, empreint de douceur,<br>
+      Tous tes vœux se réalisent, comme un doux rêve.<br><br>
+      Que la joie t'accompagne à chaque pas,<br>
+      Joyeux anniversaire, ma douce,<br>
+      Que cette journée soit un doux poème,
+      Que chaque instant de cette année te soit une douce mélodie,<br>
+      Encore une fois, joyeux anniversaire, ma belle,<br>
+      Que la vie t'offre mille et une merveilles,<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      Ton grand frère <br>
+        🤏🏾🕶&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;😏<br>
+          🤏🏾🕶&nbsp;&nbsp;&nbsp;&nbsp;😏<br>
+            🤏🏾🕶&nbsp;😏<br>
+                🤏🏾😎<br>
+    </p>
+  </div>
+
+  <script>
+    function creerFleurs(nb) {
+      for (let i = 0; i < nb; i++) {
+        const fleur = document.createElement('div');
+        fleur.classList.add('fleur');
+        fleur.style.top = Math.random() * 100 + 'vh';
+        fleur.style.left = Math.random() * 100 + 'vw';
+        fleur.style.width = fleur.style.height = (30 + Math.random() * 30) + 'px';
+        fleur.style.animationDelay = (Math.random() * 5) + 's';
+        document.body.appendChild(fleur);
+        setTimeout(() => fleur.remove(), 6000);
+      }
+      setTimeout(() => creerFleurs(nb), 7000);
+    }
+    creerFleurs(25);
+
+    // Lecture auto avec son, juste après la fin du suspense (2s de delay + 1s d'animation)
+    window.addEventListener('load', () => {
+      const video = document.getElementById('maVideo');
+      setTimeout(() => {
+        video.muted = false;
+        video.play().catch(err => {
+          console.warn("Impossible de lancer la vidéo automatiquement avec son, l'utilisateur n'a pas encore interagi.", err);
+        });
+      }, 3000);
+    });
+  </script>
+
+</body>
+</html>
